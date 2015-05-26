@@ -17,7 +17,7 @@ setup(
     packages=find_packages(),
     include_package_data=True,
     url='https://github.com/botswana-harvard/edc-locator',
-    license='GPL licence, see LICENCE',
+    license='GPL license, see LICENSE',
     description='Base models, forms and admin for participant locator in the Edc.',
     long_description=README,
     zip_safe=False,
