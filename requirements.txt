@@ -7,3 +7,4 @@ python-dateutil==2.4.2
 -e git+https://github.com/botswana-harvard/edc-registration@develop#egg=edc-registration
 -e git+https://github.com/botswana-harvard/edc-offstudy@develop#egg=edc-offstudy
 -e git+https://github.com/botswana-harvard/edc-identifier@develop#egg=edc-identifier
+-e git+https://github.com/botswana-harvard/edc-device@develop#egg=edc-device
