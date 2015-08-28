@@ -22,11 +22,6 @@ setup(
     long_description=README,
     zip_safe=False,
     keywords='django participant locator',
-    install_requires=[
-        'edc-base>=0.1',
-        'edc-registration>=0.1',
-        'edc-consent>=0.1',
-    ],
     classifiers=[
         'Environment :: Web Environment',
         'Framework :: Django',
