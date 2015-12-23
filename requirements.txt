@@ -1,11 +1,18 @@
-Django
-django-extensions==1.5.5
-Unipath==1.1
-python-dateutil==2.4.2
+Django==1.6
 M2Crypto==0.22.3
--e git+https://github.com/botswana-harvard/edc-base@develop#egg=edc-base
--e git+https://github.com/botswana-harvard/edc-consent@develop#egg=edc-consent
--e git+https://github.com/botswana-harvard/edc-registration@develop#egg=edc-registration
--e git+https://github.com/botswana-harvard/edc-offstudy@develop#egg=edc-offstudy
--e git+https://github.com/botswana-harvard/edc-identifier@develop#egg=edc-identifier
--e git+https://github.com/botswana-harvard/edc-device@develop#egg=edc-device
+django-tastypie
+django_extensions
+django-simple-history
+python-dateutil
+django_databrowse
+numpy
+Unipath
+GitPython
+factory-boy
+pytz
+pyodbc
+pycups
+git+https://github.com/botswana-harvard/edc-base@develop#egg=edc-base
+git+https://github.com/botswana-harvard/edc-consent@develop#egg=edc-consent
+git+https://github.com/botswana-harvard/edc-offstudy@develop#egg=edc-offstudy
+git+https://github.com/botswana-harvard/edc-device@develop#egg=edc-device
