@@ -11,7 +11,7 @@ GitPython
 factory-boy
 pytz
 #pyodbc
-pycups
+#pycups
 git+https://github.com/botswana-harvard/edc-base@master#egg=edc-base
 git+https://github.com/botswana-harvard/edc-consent@master#egg=edc-consent
 git+https://github.com/botswana-harvard/edc-offstudy@master#egg=edc-offstudy
