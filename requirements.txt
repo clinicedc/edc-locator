@@ -15,6 +15,7 @@ pytz
 git+https://github.com/botswana-harvard/edc-base@master#egg=edc-base
 git+https://github.com/botswana-harvard/edc-consent@master#egg=edc-consent
 git+https://github.com/botswana-harvard/edc-crypto-fields@develop#egg=edc-crypto-fields
-git+https://github.com/botswana-harvard/edc-offstudy@master#egg=edc-offstudy
 git+https://github.com/botswana-harvard/edc-device@master#egg=edc-device
+git+https://github.com/botswana-harvard/edc-offstudy@master#egg=edc-offstudy
+git+https://github.com/botswana-harvard/edc-sync@master#egg=edc-sync
 git+https://github.com/erikvw/django-revision@master#egg=django-revision
