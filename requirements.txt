@@ -1,5 +1,5 @@
 Django==1.6
-M2Crypto==0.22.3
+#M2Crypto==0.22.3
 django-tastypie
 django_extensions
 django-simple-history
@@ -10,8 +10,8 @@ Unipath
 GitPython
 factory-boy
 pytz
-pyodbc
-pycups
+#pyodbc
+#pycups
 git+https://github.com/botswana-harvard/edc-base@master#egg=edc-base
 git+https://github.com/botswana-harvard/edc-consent@master#egg=edc-consent
 git+https://github.com/botswana-harvard/edc-offstudy@master#egg=edc-offstudy
