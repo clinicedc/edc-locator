@@ -1,11 +1,11 @@
 Django==1.6
+M2Crypto==0.22.3
 django-tastypie
 django_extensions
 django-simple-history
 python-dateutil
 django_databrowse
 numpy
-M2Crypto==0.22.3
 Unipath
 GitPython
 factory-boy
