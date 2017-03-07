@@ -1,18 +1,26 @@
-from django.utils import timezone
 from datetime import date
 
 from django.db import models
 from django.utils.translation import ugettext as _
 
-from edc_base.model.validators import CellNumber, TelephoneNumber
-from edc_base.encrypted_fields import EncryptedCharField, EncryptedTextField
+from django_crypto_fields.fields import EncryptedCharField, EncryptedTextField
+
+from edc_base.model_validators import CellNumber, TelephoneNumber
+from edc_base.utils import get_utcnow
 from edc_constants.choices import YES_NO, YES_NO_DOESNT_WORK
 from edc_constants.constants import YES
+from edc_identifier.model_mixins import UniqueSubjectIdentifierFieldMixin
 
-from edc_base.audit_trail import AuditTrail
+
+class LocatorManager(models.Manager):
+
+    def get_by_natural_key(self, subject_identifier):
+        return self.get(subject_identifier=subject_identifier)
 
 
-class LocatorMixin(models.Model):
+class LocatorModelMixin(UniqueSubjectIdentifierFieldMixin, models.Model):
+
+    report_datetime = models.DateTimeField(default=get_utcnow)
 
     date_signed = models.DateField(
         verbose_name="Date Locator Form signed ",
@@ -21,7 +29,6 @@ class LocatorMixin(models.Model):
     )
 
     mail_address = EncryptedTextField(
-        max_length=500,
         verbose_name=_("Mailing address "),
         help_text="",
         null=True,
@@ -36,7 +43,6 @@ class LocatorMixin(models.Model):
     )
 
     physical_address = EncryptedTextField(
-        max_length=500,
         verbose_name=_("Physical address with detailed description"),
         blank=True,
         null=True,
@@ -60,7 +66,6 @@ class LocatorMixin(models.Model):
     )
 
     subject_cell = EncryptedCharField(
-        max_length=8,
         verbose_name=_("Cell number"),
         validators=[CellNumber, ],
         blank=True,
@@ -69,7 +74,6 @@ class LocatorMixin(models.Model):
     )
 
     subject_cell_alt = EncryptedCharField(
-        max_length=8,
         verbose_name=_("Cell number (alternate)"),
         validators=[CellNumber, ],
         help_text="",
@@ -78,7 +82,6 @@ class LocatorMixin(models.Model):
     )
 
     subject_phone = EncryptedCharField(
-        max_length=8,
         verbose_name=_("Telephone"),
         validators=[TelephoneNumber, ],
         help_text="",
@@ -87,7 +90,6 @@ class LocatorMixin(models.Model):
     )
 
     subject_phone_alt = EncryptedCharField(
-        max_length=8,
         verbose_name=_("Telephone (alternate)"),
         help_text="",
         validators=[TelephoneNumber, ],
@@ -103,7 +105,6 @@ class LocatorMixin(models.Model):
     )
 
     subject_work_place = EncryptedTextField(
-        max_length=500,
         verbose_name=_("Name and location of work place"),
         help_text="",
         blank=True,
@@ -111,7 +112,6 @@ class LocatorMixin(models.Model):
     )
 
     subject_work_phone = EncryptedCharField(
-        max_length=8,
         verbose_name=_("Work contact number "),
         help_text="",
         # validators=[TelephoneNumber, ],
@@ -128,7 +128,6 @@ class LocatorMixin(models.Model):
     )
 
     contact_name = EncryptedCharField(
-        max_length=35,
         verbose_name=_("Full names of the contact person"),
         blank=True,
         null=True,
@@ -136,7 +135,6 @@ class LocatorMixin(models.Model):
     )
 
     contact_rel = EncryptedCharField(
-        max_length=35,
         verbose_name=_("Relationship to participant"),
         blank=True,
         null=True,
@@ -144,7 +142,6 @@ class LocatorMixin(models.Model):
     )
 
     contact_physical_address = EncryptedTextField(
-        max_length=500,
         verbose_name=_("Full physical address "),
         blank=True,
         null=True,
@@ -152,7 +149,6 @@ class LocatorMixin(models.Model):
     )
 
     contact_cell = EncryptedCharField(
-        max_length=8,
         verbose_name=_("Cell number"),
         validators=[CellNumber, ],
         help_text="",
@@ -161,7 +157,6 @@ class LocatorMixin(models.Model):
     )
 
     contact_phone = EncryptedCharField(
-        max_length=8,
         verbose_name=_("Telephone number"),
         validators=[TelephoneNumber, ],
         help_text="",
@@ -169,7 +164,35 @@ class LocatorMixin(models.Model):
         null=True,
     )
 
-    history = AuditTrail()
+    objects = LocatorManager()
+
+    def natural_key(self):
+        return (self.subject_identifier, )
+
+    def to_dict(self):
+        data = {'may_follow_up': self.may_follow_up}
+        if self.may_follow_up == YES:
+            data.update({
+                'may_sms_follow_up': YES,
+                'subject_cell': (self.subject_cell or '(none)') + ('/' + self.subject_cell_alt if self.subject_cell_alt else ''),
+                'subject_phone': (self.subject_phone or '(none)') + ('/' + self.subject_phone_alt if self.subject_phone_alt else ''),
+                'physical_address': self.physical_address,
+            })
+            if self.may_call_work == YES:
+                data.update({
+                    'subject_work_place': (self.subject_work_place or '(work place not known)'),
+                    'subject_work_phone': self.subject_work_phone,
+                })
+            if self.may_contact_someone == YES:
+                data.update({
+                    'contact_name': self.contact_name or '(name?)',
+                    'contact_rel': self.contact_rel or '(relation?)',
+                    'contact_cell': self.contact_cell or '(----)',
+                    'contact_phone': self.contact_phone or '(----)'
+                })
+        if not data:
+            data = {'IMPORTANT': 'subject may NOT be contacted!'}
+        return data
 
     def to_string(self):
         """Returns a formatted string that summarizes contact and locator info."""
@@ -181,7 +204,8 @@ class LocatorMixin(models.Model):
                 'Phone: {subject_phone} {alt_subject_phone}\n'
                 '').format(
                     may_sms_follow_up='SMS permitted' if self.may_sms_follow_up == 'Yes' else 'NO SMS!',
-                    subject_cell='{} (primary)'.format(self.subject_cell) if self.subject_cell else '(none)',
+                    subject_cell='{} (primary)'.format(
+                        self.subject_cell) if self.subject_cell else '(none)',
                     alt_subject_cell=self.subject_cell_alt,
                     subject_phone=self.subject_phone or '(none)', alt_subject_phone=self.subject_phone_alt
             )
