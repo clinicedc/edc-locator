@@ -1,7 +1,7 @@
 import sys
 
 from django.conf import settings
-from edc_action_item.model_mixins import ActionItemModelMixin
+from edc_action_item.model_mixins import ActionModelMixin
 from edc_base.model_managers import HistoricalRecords
 from edc_base.model_mixins import BaseUuidModel
 from edc_base.sites import CurrentSiteManager, SiteModelMixin
@@ -16,7 +16,7 @@ if settings.APP_NAME == 'edc_locator' and 'makemigrations' not in sys.argv:
 
 
 class SubjectLocator(LocatorModelMixin, RequiresConsentFieldsModelMixin,
-                     ActionItemModelMixin, SiteModelMixin, TrackingIdentifierModelMixin,
+                     ActionModelMixin, SiteModelMixin, TrackingIdentifierModelMixin,
                      BaseUuidModel):
     """A model completed by the user to that captures participant
     locator information and permission to contact.
