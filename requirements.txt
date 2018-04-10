@@ -6,5 +6,6 @@ git+https://github.com/clinicedc/edc-offstudy@develop#egg=edc-offstudy
 git+https://github.com/erikvw/django-revision@develop#egg=django-revision
 git+https://github.com/clinicedc/edc-constants@develop#egg=edc-constants
 git+https://github.com/clinicedc/edc-prn@develop#egg=edc-prn
-git+https://github.com/clinicedc/edc-sync@develop#egg=edc-sync
 git+https://github.com/erikvw/django-crypto-fields@develop#egg=django-crypto_fields
+git+https://github.com/clinicedc/edc-sync@develop#egg=edc-sync
+git+https://github.com/clinicedc/edc-model-wrapper@develop#egg=edc-model-wrapper
