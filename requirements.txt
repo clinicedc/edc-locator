@@ -1,8 +1,9 @@
-git+https://github.com/botswana-harvard/edc-base@develop#egg=edc-base
-git+https://github.com/botswana-harvard/edc-action-item@develop#egg=edc_action_item
-git+https://github.com/botswana-harvard/edc-consent@develop#egg=edc-consent
-git+https://github.com/botswana-harvard/edc-device@develop#egg=edc-device
-git+https://github.com/botswana-harvard/edc-offstudy@develop#egg=edc-offstudy
-git+https://github.com/botswana-harvard/edc-sync@develop#egg=edc-sync
+git+https://github.com/clinicedc/edc-base@develop#egg=edc-base
+git+https://github.com/clinicedc/edc-action-item@develop#egg=edc_action_item
+git+https://github.com/clinicedc/edc-consent@develop#egg=edc-consent
+git+https://github.com/clinicedc/edc-device@develop#egg=edc-device
+git+https://github.com/clinicedc/edc-offstudy@develop#egg=edc-offstudy
 git+https://github.com/erikvw/django-revision@develop#egg=django-revision
+git+https://github.com/clinicedc/edc-contants@develop#egg=edc-contants
+git+https://github.com/clinicedc/edc-sync@develop#egg=edc-sync
 git+https://github.com/erikvw/django-crypto-fields@develop#egg=django-crypto_fields
