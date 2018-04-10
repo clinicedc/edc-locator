@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/botswana-harvard/edc-locator.svg?branch=develop)](https://travis-ci.org/botswana-harvard/edc-locator)
+[![Build Status](https://travis-ci.org/clinicedc/edc-locator.svg?branch=develop)](https://travis-ci.org/clinicedc/edc-locator)
 
 # edc-locator
 
