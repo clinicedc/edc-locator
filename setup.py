@@ -25,6 +25,14 @@ setup(
     long_description=README,
     zip_safe=False,
     keywords='django participant locator',
+    install_requires=[
+        'edc-action-item',
+        'edc-base',
+        'edc-model-admin',
+        'edc-form-validators',
+        'edc-identifier',
+        'edc-subject-dashboard',
+    ],
     classifiers=[
         'Environment :: Web Environment',
         'Framework :: Django',
