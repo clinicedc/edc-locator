@@ -27,6 +27,7 @@ setup(
     keywords='django participant locator',
     install_requires=[
         'edc-action-item',
+        'edc-notification',
         'edc-base',
         'edc-model-admin',
         'edc-form-validators',
