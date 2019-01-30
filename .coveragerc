@@ -5,3 +5,5 @@ omit =
     manage.py
     */migrations/*
     */mommy_*
+    .*/*
+    runtests.py

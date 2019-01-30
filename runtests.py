@@ -76,6 +76,8 @@ DEFAULT_SETTINGS = dict(
         'django.contrib.auth.middleware.AuthenticationMiddleware',
         'django.contrib.messages.middleware.MessageMiddleware',
         'django.middleware.clickjacking.XFrameOptionsMiddleware',
+        'edc_dashboard.middleware.DashboardMiddleware',
+        'edc_subject_dashboard.middleware.DashboardMiddleware',
     ],
 
     LANGUAGE_CODE='en-us',
@@ -90,6 +92,8 @@ DEFAULT_SETTINGS = dict(
         'subject_listboard_url': 'edc_subject_dashboard:subject_listboard_url',
         'subject_dashboard_url': 'edc_subject_dashboard:subject_dashboard_url',
     },
+    EMAIL_CONTACTS={},
+    EMAIL_ENABLED=False,
 
     DEFAULT_FILE_STORAGE='inmemorystorage.InMemoryStorage',
     MIGRATION_MODULES=DisableMigrations(),
