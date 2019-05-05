@@ -17,4 +17,3 @@ Base classes for participant locator form and processes
 
 .. |downloads| image:: https://pepy.tech/badge/edc-locator
    :target: https://pepy.tech/project/edc-locator
-
