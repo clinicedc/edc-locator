@@ -1,4 +1,4 @@
-|pypi| |travis| |coverage|
+|pypi| |travis| |codecov| |downloads|
 
 edc-locator
 -----------
@@ -12,6 +12,9 @@ Base classes for participant locator form and processes
 .. |travis| image:: https://travis-ci.org/clinicedc/edc-locator.svg?branch=develop
     :target: https://travis-ci.org/clinicedc/edc-locator
     
-.. |coverage| image:: https://coveralls.io/repos/github/clinicedc/edc-locator/badge.svg?branch=develop
-    :target: https://coveralls.io/github/clinicedc/edc-locator?branch=develop
+.. |codecov| image:: https://codecov.io/gh/clinicedc/edc-locator/branch/develop/graph/badge.svg
+  :target: https://codecov.io/gh/clinicedc/edc-locator
+
+.. |downloads| image:: https://pepy.tech/badge/edc-locator
+   :target: https://pepy.tech/project/edc-locator
 
