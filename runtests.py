@@ -31,6 +31,7 @@ installed_apps = [
     'django_crypto_fields.apps.AppConfig',
     'django_revision.apps.AppConfig',
     'edc_action_item.apps.AppConfig',
+    'edc_sites.apps.AppConfig',
     'edc_notification.apps.AppConfig',
     'edc_protocol.apps.AppConfig',
     'edc_device.apps.AppConfig',
