@@ -9,12 +9,12 @@ py_version = "35"
 [tool.coverage.run]
 parallel = true
 branch = true
-source = ["edc_data_manager"]
+source = ["edc-locator"]
 
 [tool.coverage.paths]
-source = ["edc_data_manager", ".tox/*/site-packages"]
+source = ["edc-locator", ".tox/*/site-packages"]
 
 [tool.coverage.report]
 show_missing = true
 skip_covered = true
-omit = ["requirements/*"]
+omit = ["requirements.txt"]
