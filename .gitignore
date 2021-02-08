@@ -1,4 +1,5 @@
-crypto_fields/*
+django_crypto_fields
+.env
 
 # Swap
 [._]*.s[a-v][a-z]
