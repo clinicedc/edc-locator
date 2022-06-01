@@ -1,5 +1,7 @@
+_version.py
 django_crypto_fields
 .env
+.etc
 
 # Swap
 [._]*.s[a-v][a-z]
