@@ -56,8 +56,8 @@ before registering your custom modeladmin class.
 .. |pypi| image:: https://img.shields.io/pypi/v/edc-locator.svg
     :target: https://pypi.python.org/pypi/edc-locator
 
-.. |actions| image:: https://github.com/clinicedc/edc-locator/workflows/build/badge.svg?branch=develop
-  :target: https://github.com/clinicedc/edc-locator/actions?query=workflow:build
+.. |actions| image:: https://github.com/clinicedc/edc-locator/action/workflows/build.yml/badge.svg
+  :target: https://github.com/clinicedc/edc-locator/action/workflows/build.yml
 
 .. |codecov| image:: https://codecov.io/gh/clinicedc/edc-locator/branch/develop/graph/badge.svg
   :target: https://codecov.io/gh/clinicedc/edc-locator
