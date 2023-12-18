@@ -14,6 +14,7 @@ project_settings = DefaultTestSettings(
     APP_NAME=app_name,
     ETC_DIR=str(base_dir / app_name / "tests" / "etc"),
     SUBJECT_VISIT_MODEL="edc_visit_tracking.subjectvisit",
+    EDC_SITES_REGISTER_DEFAULT=True,
     INSTALLED_APPS=[
         "django.contrib.admin",
         "django.contrib.auth",
@@ -26,6 +27,7 @@ project_settings = DefaultTestSettings(
         "django_crypto_fields.apps.AppConfig",
         "edc_appointment.apps.AppConfig",
         "edc_action_item.apps.AppConfig",
+        "edc_auth.apps.AppConfig",
         "edc_crf.apps.AppConfig",
         "edc_consent.apps.AppConfig",
         "edc_randomization.apps.AppConfig",
