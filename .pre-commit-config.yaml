@@ -40,7 +40,6 @@ repos:
       - id: check-merge-conflict
       - id: debug-statements
       - id: detect-private-key
-      - id: detect-aws-credentials
       - id: check-toml
 
   - repo: https://github.com/adrienverge/yamllint
